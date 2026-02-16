@@ -26,6 +26,11 @@ app.get('/', (req, res, next) => {
     res.send("Get response")
 })
 
+app.get('/contact-us', (req, res, next) => {
+    console.log(`This is contact get req`);
+    res.send("Pls give your contact details")
+})
+
 app.listen(PORT, ()=> {
    console.log(`Server running on port: ${PORT}`);
 })
