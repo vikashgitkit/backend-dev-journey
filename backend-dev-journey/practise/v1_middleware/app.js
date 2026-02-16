@@ -16,9 +16,14 @@ app.use((req, res, next) => {
     next()
 })
 
-app.use((req, res, next) => {
-    console.log("Third midleware", req.url, req.method);
-    res.send("3rd midlleware response")
+// app.use((req, res, next) => {
+//     console.log("Third midleware", req.url, req.method);
+//     res.send("3rd midlleware response")
+// })
+
+app.get('/', (req, res, next) => {
+    console.log(`This is get req`);
+    res.send("Get response")
 })
 
 app.listen(PORT, ()=> {
