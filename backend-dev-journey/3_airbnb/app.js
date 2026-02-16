@@ -1,4 +1,6 @@
 const express = require('express');
+const userRouter = require('./routes/userRouter')
+const hostRouter = require('./routes/hostRouter')
 
 const app = express()
 
@@ -7,22 +9,11 @@ app.use((req,res, next)=> {
     next();
 })
 
-app.get('/',(req, res, next) => {
-    res.send(`
-        <h1>Welcome to airbnb</h1>
-        <a href="/add-home">Add Home</a>
-        `); 
-});
 
-app.get('/add-home',(req, res, next) => {
-    res.send(`
-        <h1>Register your home here:</h1>
-        <form action="/add-home" method="POST">
-           <input type="text" name="houseName" placeholder="Enter the name of your house" />
-           <input type="submit"  />
-        </form>
-        `); 
-})
+app.use(express.urlencoded());
+
+app.use(userRouter);
+app.use(hostRouter);
 
 const PORT = 3000;
 app.listen(PORT, () => {
