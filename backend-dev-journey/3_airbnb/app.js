@@ -2,9 +2,12 @@ const express = require('express');
 
 const app = express()
 
-app.use((req, res, next) => {
+app.get('/',(req, res, next) => {
     console.log(req.url, res.method);
-    res.send("Welcome to airbnb");
+    res.send(`
+        <h1>Welcome to airbnb</h1>
+        <a href="/add-home">Add Home</a>
+        `);
     
 })
 
