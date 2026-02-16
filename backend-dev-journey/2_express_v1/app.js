@@ -10,10 +10,13 @@ app.use((req, res, next) => {
     const name = req.body
     console.log("Name body:", name)
     console.log("This is middleware....", name.name);
-    return res.json({
-      msg: "This is middleware response",
-      name: name.name,
-    })
+    // next();
+    res.send("This is res")
+    // return res.json({
+    //   msg: "This is middleware response",
+    //   name: name.name,
+    // })
+
 })
 
 app.listen(PORT, ()=> {
