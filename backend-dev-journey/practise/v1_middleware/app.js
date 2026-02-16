@@ -7,13 +7,18 @@ app.use(express.json());
 
 //Middleware
 app.use((req, res, next) => {
-    console.log("First dummy midleware");
+    console.log("First dummy midleware", req.url, req.method);
     next()
 })
 
 app.use((req, res, next) => {
-    console.log("second dummy midleware");
+    console.log("second dummy midleware", req.url, req.method);
     next()
+})
+
+app.use((req, res, next) => {
+    console.log("Third midleware", req.url, req.method);
+    res.send("3rd midlleware response")
 })
 
 app.listen(PORT, ()=> {
